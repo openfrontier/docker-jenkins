@@ -48,3 +48,7 @@ git push origin meta/config:meta/config
 cd -
 rm -rf ${CHECKOUT_DIR}
 
+#Install plugins
+#TODO:this is not a good way to install plugins. Should be rewrite by using docker way.
+cp ./plugins/*.hpi ~/jenkins_volume/plugins/
+docker restart jenkins-master
