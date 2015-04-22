@@ -1,26 +1,30 @@
 #!/bin/bash
 set -e
-ADMIN_ID=$1
-ADMIN_EMAIL=$2
+GERRIT_ADMIN_UID=${GERRIT_ADMIN_UID:-$1}
+GERRIT_ADMIN_EMAIL=${GERRIT_ADMIN_EMAIL:-$2}
 CHECKOUT_DIR=./git
+
+JENKINS_NAME=${JENKINS_NAME:-jenkins-master}
+GERRIT_HOST=${GERRIT_HOST:-localhost}
 
 #create ssh key.
 ##TODO: check key existence before create one.
-docker exec jenkins-master ssh-keygen -q -N '' -t rsa  -f /var/jenkins_home/.ssh/id_rsa
+docker exec ${JENKINS_NAME} ssh-keygen -q -N '' -t rsa  -f /var/jenkins_home/.ssh/id_rsa
 
 #gather server rsa key
+##TODO: This is not an elegant way.
 [ -f ~/.ssh/known_hosts ] && mv ~/.ssh/known_hosts ~/.ssh/known_hosts.bak
-ssh-keyscan -p 29418 -t rsa localhost > ~/.ssh/known_hosts
+ssh-keyscan -p 29418 -t rsa ${GERRIT_HOST} > ~/.ssh/known_hosts
 #create jenkins account in gerrit.
 ##TODO: check account existence before create one.
-docker exec jenkins-master cat /var/jenkins_home/.ssh/id_rsa.pub | ssh -p 29418 ${ADMIN_ID}@localhost gerrit create-account --group "'Non-Interactive Users'" --full-name "'Jenkins Server'" --ssh-key - jenkins
+docker exec jenkins-master cat /var/jenkins_home/.ssh/id_rsa.pub | ssh -p 29418 ${GERRIT_ADMIN_UID}@${GERRIT_HOST} gerrit create-account --group "'Non-Interactive Users'" --full-name "'Jenkins Server'" --ssh-key - jenkins
 
 #checkout project.config from All-Project.git
 mkdir ${CHECKOUT_DIR}
 git init ${CHECKOUT_DIR}
 cd ${CHECKOUT_DIR}
-git config user.email ${ADMIN_EMAIL}
-git remote add origin ssh://${ADMIN_ID}@localhost:29418/All-Projects 
+git config user.email ${GERRIT_ADMIN_EMAIL}
+git remote add origin ssh://${GERRIT_ADMIN_UID}@${GERRIT_HOST}:29418/All-Projects 
 git fetch -q origin refs/meta/config:refs/remotes/origin/meta/config
 git checkout meta/config
 #add label.Verified
