@@ -17,7 +17,7 @@ docker exec ${JENKINS_NAME} ssh-keygen -q -N '' -t rsa  -f /var/jenkins_home/.ss
 ssh-keyscan -p 29418 -t rsa ${GERRIT_HOST} > ~/.ssh/known_hosts
 #create jenkins account in gerrit.
 ##TODO: check account existence before create one.
-docker exec jenkins-master cat /var/jenkins_home/.ssh/id_rsa.pub | ssh -p 29418 ${GERRIT_ADMIN_UID}@${GERRIT_HOST} gerrit create-account --group "'Non-Interactive Users'" --full-name "'Jenkins Server'" --ssh-key - jenkins
+docker exec ${JENKINS_NAME} cat /var/jenkins_home/.ssh/id_rsa.pub | ssh -p 29418 ${GERRIT_ADMIN_UID}@${GERRIT_HOST} gerrit create-account --group "'Non-Interactive Users'" --full-name "'Jenkins Server'" --ssh-key - jenkins
 
 #checkout project.config from All-Project.git
 mkdir ${CHECKOUT_DIR}
