@@ -11,4 +11,4 @@ Official Jenkins docker plus some plugins and scripts in order to integrating wi
     setupJenkins.sh <Gerrit admin uid> <Gerrit admin email>
     (A ssh public key of this script's runner should be added to Gerrit first as the <Gerrit admin uid>'s public key.)
 ## Destroy Jenkins container (Use with caution!)
-    cleanJenkins.sh
+    destroyJenkins.sh
