@@ -25,6 +25,7 @@ docker exec ${JENKINS_NAME} cat /var/jenkins_home/.ssh/id_rsa.pub | ssh -p 29418
 mkdir ${CHECKOUT_DIR}
 git init ${CHECKOUT_DIR}
 cd ${CHECKOUT_DIR}
+git config user.name  ${GERRIT_ADMIN_UID}
 git config user.email ${GERRIT_ADMIN_EMAIL}
 git remote add origin ssh://${GERRIT_ADMIN_UID}@${GERRIT_SSH_HOST}:29418/All-Projects 
 git fetch -q origin refs/meta/config:refs/remotes/origin/meta/config
