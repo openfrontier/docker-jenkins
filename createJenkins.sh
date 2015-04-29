@@ -3,7 +3,7 @@ set -e
 JENKINS_NAME=${JENKINS_NAME:-jenkins-master}
 GERRIT_NAME=${GERRIT_NAME:-gerrit}
 JENKINS_IMAGE_NAME=${JENKINS_IMAGE_NAME:-openfrontier/jenkins}
-LOCAL_VOLUME=~/jenkins_volume
+LOCAL_VOLUME=~/jenkins_volume${SUFFIX}
 JENKINS_OPTS=${JENKINS_OPTS:---prefix=/jenkins}
 
 mkdir -p "${LOCAL_VOLUME}"
