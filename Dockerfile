@@ -11,5 +11,8 @@ COPY gerrit-trigger.xml /usr/local/etc/gerrit-trigger.xml
 # Add credentials plugin config file
 COPY credentials.xml /usr/local/etc/credentials.xml
 
+# Add maven installation config file
+COPY hudson.tasks.Maven.xml /usr/local/etc/hudson.tasks.Maven.xml
+
 # Add setup script.
 COPY jenkins-setup.sh /usr/local/bin/jenkins-setup.sh
