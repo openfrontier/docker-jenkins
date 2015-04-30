@@ -57,6 +57,6 @@ cd -
 rm -rf ${CHECKOUT_DIR}
 
 #Setup gerrit-trigger plugin and restart jenkins
-docker exec ${JENKINS_NAME} gerrit-trigger.sh ${GERRIT_NAME} ${GERRIT_WEBURL}
+docker exec ${JENKINS_NAME} jenkins-setup.sh ${GERRIT_NAME} ${GERRIT_WEBURL}
 docker restart ${JENKINS_NAME}
 

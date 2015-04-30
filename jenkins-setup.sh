@@ -13,3 +13,7 @@ done
 cp /usr/local/etc/gerrit-trigger.xml ${JENKINS_HOME}/gerrit-trigger.xml
 sed -i "s/{GERRIT_NAME}/$1/g" ${JENKINS_HOME}/gerrit-trigger.xml
 sed -i "s/{GERRIT_WEBURL}/${REPLACE_URL}/g" ${JENKINS_HOME}/gerrit-trigger.xml
+
+# Setup credentials.xml
+cp /usr/local/etc/credentials.xml ${JENKINS_HOME}/credentials.xml
+
