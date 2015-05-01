@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<com.sonyericsson.hudson.plugins.gerrit.trigger.PluginImpl plugin="gerrit-trigger@2.12.0">
+<com.sonyericsson.hudson.plugins.gerrit.trigger.PluginImpl plugin="gerrit-trigger@2.13.0">
   <servers class="java.util.concurrent.CopyOnWriteArrayList">
     <com.sonyericsson.hudson.plugins.gerrit.trigger.GerritServer>
       <name>{GERRIT_NAME}</name>
@@ -21,7 +21,7 @@
         <gerritVerifiedCmdBuildFailed>gerrit review &lt;CHANGE&gt;,&lt;PATCHSET&gt; --message &apos;Build Failed &lt;BUILDS_STATS&gt;&apos; --verified &lt;VERIFIED&gt; --code-review &lt;CODE_REVIEW&gt;</gerritVerifiedCmdBuildFailed>
         <gerritVerifiedCmdBuildStarted>gerrit review &lt;CHANGE&gt;,&lt;PATCHSET&gt; --message &apos;Build Started &lt;BUILDURL&gt; &lt;STARTED_STATS&gt;&apos; --verified &lt;VERIFIED&gt; --code-review &lt;CODE_REVIEW&gt;</gerritVerifiedCmdBuildStarted>
         <gerritVerifiedCmdBuildNotBuilt>gerrit review &lt;CHANGE&gt;,&lt;PATCHSET&gt; --message &apos;No Builds Executed &lt;BUILDS_STATS&gt;&apos; --verified &lt;VERIFIED&gt; --code-review &lt;CODE_REVIEW&gt;</gerritVerifiedCmdBuildNotBuilt>
-        <gerritFrontEndUrl>{GERRIT_WEBURL}</gerritFrontEndUrl>
+        <gerritFrontEndUrl>{GERRIT_URL}</gerritFrontEndUrl>
         <gerritBuildStartedVerifiedValue>0</gerritBuildStartedVerifiedValue>
         <gerritBuildStartedCodeReviewValue>0</gerritBuildStartedCodeReviewValue>
         <gerritBuildSuccessfulVerifiedValue>1</gerritBuildSuccessfulVerifiedValue>
