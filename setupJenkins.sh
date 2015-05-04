@@ -45,11 +45,13 @@ git push origin meta/config:meta/config
 #Change global access right
 ##Remove anonymous access right.
 git config -f project.config --unset access.refs/*.read "group Anonymous Users"
-##add Jenkins access right
+##add Jenkins access and verify right
 git config -f project.config --add access.refs/heads/*.read "group Non-Interactive Users"
 git config -f project.config --add access.refs/tags/*.read "group Non-Interactive Users"
 git config -f project.config --add access.refs/heads/*.label-Code-Review "-1..+1 group Non-Interactive Users"
 git config -f project.config --add access.refs/heads/*.label-Verified "-1..+1 group Non-Interactive Users"
+##add project owners' right to add verify flag
+git config -f project.config --add access.refs/heads/*.label-Verified "-1..+1 group Project Owners"
 ##commit and push back
 git commit -a -m "Change access right." -m "Add access right for Jenkins. Remove anonymous access right"
 git push origin meta/config:meta/config
