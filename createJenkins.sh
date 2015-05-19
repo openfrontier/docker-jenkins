@@ -1,15 +1,21 @@
 #!/bin/bash
 set -e
-JENKINS_NAME=${JENKINS_NAME:-jenkins-master}
+JENKINS_NAME=${JENKINS_NAME:-jenkins}
+JENKINS_VOLUME=${JENKINS_VOLUME:-jenkins-volume}
 GERRIT_NAME=${GERRIT_NAME:-gerrit}
 JENKINS_IMAGE_NAME=${JENKINS_IMAGE_NAME:-openfrontier/jenkins}
-LOCAL_VOLUME=~/jenkins_volume${SUFFIX}
 JENKINS_OPTS=${JENKINS_OPTS:---prefix=/jenkins}
 
-mkdir -p "${LOCAL_VOLUME}"
+# Create Jenkins volume.
+docker run \
+--name ${JENKINS_VOLUME} \
+${JENKINS_IMAGE_NAME} \
+echo "Create Jenkins volume."
+
+# Start Jenkins.
 docker run \
 --name ${JENKINS_NAME} \
 --link ${GERRIT_NAME}:gerrit \
 -p 50000:50000 \
--v ${LOCAL_VOLUME}:/var/jenkins_home \
+--volumes-from ${JENKINS_VOLUME} \
 -d ${JENKINS_IMAGE_NAME} ${JENKINS_OPTS}

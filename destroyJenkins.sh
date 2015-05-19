@@ -1,8 +1,8 @@
 #!/bin/bash
 
-JENKINS_NAME=${JENKINS_NAME:-jenkins-master}
-LOCAL_VOLUME=~/jenkins_volume${SUFFIX}
+JENKINS_NAME=${JENKINS_NAME:-jenkins}
+JENKINS_VOLUME=${JENKINS_VOLUME:-jenkins-volume}
 
-docker stop $JENKINS_NAME
-docker rm -v $JENKINS_NAME
-rm -rf "${LOCAL_VOLUME}"
+docker stop ${JENKINS_NAME}
+docker rm -v ${JENKINS_NAME}
+docker rm -v ${JENKINS_VOLUME}
