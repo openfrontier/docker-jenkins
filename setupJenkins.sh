@@ -9,6 +9,7 @@ GERRIT_NAME=${GERRIT_NAME:-gerrit}
 GERRIT_SSH_HOST=${GERRIT_SSH_HOST:-$3}
 GERRIT_WEBURL=${GERRIT_WEBURL:-$4}
 JENKINS_WEBURL=${JENKINS_WEBURL:-$5}
+NEXUS_WEBURL=${NEXUS_WEBURL:-$6}
 
 #create ssh key.
 ##TODO: check key existence before create one.
@@ -60,6 +61,12 @@ cd -
 rm -rf ${CHECKOUT_DIR}
 
 #Setup gerrit-trigger plugin and restart jenkins
-docker exec ${JENKINS_NAME} jenkins-setup.sh ${GERRIT_NAME} ${GERRIT_WEBURL} ${JENKINS_WEBURL}
+docker exec ${JENKINS_NAME} \
+jenkins-setup.sh \
+${GERRIT_NAME} \
+${GERRIT_WEBURL} \
+${JENKINS_WEBURL} \
+${NEXUS_WEBURL}
+
 docker restart ${JENKINS_NAME}
 
