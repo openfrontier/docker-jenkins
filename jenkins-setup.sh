@@ -3,7 +3,7 @@
 GERRIT_NAME=$1
 GERRIT_WEBURL=$2
 JENKINS_WEBURL=$3
-NEXUS_WEBURL=$4
+NEXUS_REPO=$4
 
 # Replace '/' in url to '\/'
 [ "${GERRIT_WEBURL%/}" = "${GERRIT_WEBURL}" ] && GERRIT_WEBURL="${GERRIT_WEBURL}/"
@@ -43,12 +43,12 @@ sed -i "s/{JENKINS_URL}/${JENKINS_URL}/g" \
   ${JENKINS_HOME}/jenkins.model.JenkinsLocationConfiguration.xml
 
 # Setup nexus as maven mirror if defined
-if [ ${#NEXUS_WEBURL} -gt 0 ]; then
+if [ ${#NEXUS_REPO} -gt 0 ]; then
   # Replace '/' in url to '\/'
-  [ "${NEXUS_WEBURL%/}" = "${NEXUS_WEBURL}" ] && NEXUS_WEBURL="${NEXUS_WEBURL}/"
-  while [ -n "${NEXUS_WEBURL}" ]; do
-  NEXUS_URL="${NEXUS_URL}${NEXUS_WEBURL%%/*}\/"
-  NEXUS_WEBURL="${NEXUS_WEBURL#*/}"
+  [ "${NEXUS_REPO%/}" = "${NEXUS_REPO}" ] && NEXUS_REPO="${NEXUS_REPO}/"
+  while [ -n "${NEXUS_REPO}" ]; do
+  NEXUS_URL="${NEXUS_URL}${NEXUS_REPO%%/*}\/"
+  NEXUS_REPO="${NEXUS_REPO#*/}"
   done
   NEXUS_URL="${NEXUS_URL%\\/}"
 

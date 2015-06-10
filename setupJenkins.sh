@@ -10,7 +10,7 @@ GERRIT_NAME=${GERRIT_NAME:-gerrit}
 GERRIT_SSH_HOST=${GERRIT_SSH_HOST:-$3}
 GERRIT_WEBURL=${GERRIT_WEBURL:-$4}
 JENKINS_WEBURL=${JENKINS_WEBURL:-$5}
-NEXUS_WEBURL=${NEXUS_WEBURL:-$6}
+NEXUS_REPO=${NEXUS_REPO:-$6}
 
 #create ssh key.
 ##TODO: check key existence before create one.
@@ -79,7 +79,7 @@ jenkins-setup.sh \
 ${GERRIT_NAME} \
 ${GERRIT_WEBURL} \
 ${JENKINS_WEBURL} \
-${NEXUS_WEBURL}
+${NEXUS_REPO}
 
 docker restart ${JENKINS_NAME}
 
