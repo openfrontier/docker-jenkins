@@ -1,10 +1,11 @@
 # Jenkins Docker Image
-Official Jenkins docker plus some plugins and scripts in order to integrating with the Gerrit.
-  Additional plugins include:
-    gerrit-trigger:2.12.0
-    git-client:1.16.1
-    git:2.3.5
-    scm-api:0.2
+Official Jenkins docker plus some plugins and scripts in order to integrating with the Gerrit.  
+Additional plugins include:
+* gerrit-trigger:2.12.0
+* git-client:1.16.1
+* git:2.3.5
+* scm-api:0.2
+
 ## create Jenkins container
     createJenkins.sh
 ## basic setup for integrating Jenkins with Gerrit.
