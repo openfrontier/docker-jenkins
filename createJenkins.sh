@@ -7,10 +7,12 @@ JENKINS_IMAGE_NAME=${JENKINS_IMAGE_NAME:-openfrontier/jenkins}
 JENKINS_OPTS=${JENKINS_OPTS:---prefix=/jenkins}
 
 # Create Jenkins volume.
-docker run \
---name ${JENKINS_VOLUME} \
-${JENKINS_IMAGE_NAME} \
-echo "Create Jenkins volume."
+if [ -z "$(docker ps -a | grep ${JENKINS_VOLUME})" ]; then
+    docker run \
+    --name ${JENKINS_VOLUME} \
+    ${JENKINS_IMAGE_NAME} \
+    echo "Create Jenkins volume."
+fi
 
 # Start Jenkins.
 docker run \
