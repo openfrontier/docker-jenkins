@@ -2,3 +2,6 @@ gerrit-trigger:2.13.0
 git-client:1.17.1
 git:2.3.5
 scm-api:0.2
+docker-plugin:0.10.0
+durable-task:1.5
+token-macro:1.10
