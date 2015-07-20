@@ -18,8 +18,6 @@ fi
 docker run \
 --name ${JENKINS_NAME} \
 --link ${GERRIT_NAME}:gerrit \
--v /var/run/docker.sock:/var/run/docker.sock \
--v /bin/docker:/bin/docker \
 -p 50000:50000 \
 --volumes-from ${JENKINS_VOLUME} \
 -d ${JENKINS_IMAGE_NAME} ${JENKINS_OPTS}
