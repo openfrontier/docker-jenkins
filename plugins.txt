@@ -1,7 +1,11 @@
 gerrit-trigger:2.13.0
-git-client:1.17.1
-git:2.3.5
+git-client:1.18.0
+git:2.4.0
 scm-api:0.2
-docker-plugin:0.10.0
+maven-plugin:2.10
+docker-plugin:0.10.2
 durable-task:1.5
 token-macro:1.10
+ldap:1.11
+ssh-credentials:1.11
+credentials:1.22
