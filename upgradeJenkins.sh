@@ -5,6 +5,7 @@ JENKINS_VOLUME=${JENKINS_VOLUME:-jenkins-volume}
 GERRIT_NAME=${GERRIT_NAME:-gerrit}
 JENKINS_IMAGE_NAME=${JENKINS_IMAGE_NAME:-openfrontier/jenkins}
 JENKINS_OPTS=${JENKINS_OPTS:---prefix=/jenkins}
+TIMEZONE=${TIMEZONE:-Asia/Shanghai}
 
 # Stop and delete jenkins container.
 docker stop ${JENKINS_NAME}
@@ -15,5 +16,6 @@ docker run \
 --name ${JENKINS_NAME} \
 --link ${GERRIT_NAME}:gerrit \
 -p 50000:50000 \
+-e JAVA_OPTS="-Duser.timezone=${TIMEZONE}" \
 --volumes-from ${JENKINS_VOLUME} \
 -d ${JENKINS_IMAGE_NAME} ${JENKINS_OPTS}
