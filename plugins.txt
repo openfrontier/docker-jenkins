@@ -10,3 +10,6 @@ token-macro:1.10
 ldap:1.11
 ssh-credentials:1.11
 credentials:1.22
+authentication-tokens:1.1
+docker-commons:1.2
+docker-build-publish:1.0
