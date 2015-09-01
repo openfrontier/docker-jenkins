@@ -5,9 +5,17 @@ Additional plugins include:
 * git-client:1.18.0
 * git:2.4.0
 * scm-api:0.2
+* junit:1.8
 * maven-plugin:2.11
 * docker-plugin:0.12.1
+* durable-task:1.6
+* token-macro:1.10
 * ldap:1.11
+* ssh-credentials:1.11
+* credentials:1.22
+* authentication-tokens:1.1
+* docker-commons:1.2
+* docker-build-publish:1.0
 
 ## Features
 * Demonstrate how to integrate Jenkins with Gerrit.
