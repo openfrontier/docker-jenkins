@@ -28,7 +28,7 @@
           </retentionStrategy>
           <numExecutors>1</numExecutors>
           <dockerTemplateBase>
-            <image>openfrontier/jenkins-slave:maven</image>
+            <image>openfrontier/jenkins-slave</image>
             <dockerCommand></dockerCommand>
             <lxcConfString></lxcConfString>
             <hostname></hostname>
