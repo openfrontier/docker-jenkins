@@ -8,8 +8,13 @@ JENKINS_OPTS=${JENKINS_OPTS:---prefix=/jenkins}
 TIMEZONE=${TIMEZONE:-Asia/Shanghai}
 
 # Stop and delete jenkins container.
-docker stop ${JENKINS_NAME}
-docker rm ${JENKINS_NAME}
+if [ -z "$(docker ps -a | grep ${JENKINS_VOLUME})" ]; then
+  echo "${JENKINS_VOLUME} does not exist."
+  exit 1
+elif [ -n "$(docker ps -a | grep ${JENKINS_NAME} | grep -v ${JENKINS_VOLUME})" ]; then
+  docker stop ${JENKINS_NAME}
+  docker rm ${JENKINS_NAME}
+fi
 
 # Start Jenkins.
 docker run \
