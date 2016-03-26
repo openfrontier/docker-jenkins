@@ -18,6 +18,7 @@ Additional plugins include:
 * icon-shim:2.0.3
 * docker-commons:1.3.1
 * docker-build-publish:1.2.1
+* parameterized-trigger:2.30
 
 ## Features
 * Demonstrate how to integrate Jenkins with Gerrit.
