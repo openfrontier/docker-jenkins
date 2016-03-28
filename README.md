@@ -3,7 +3,7 @@ Official Jenkins docker plus some plugins and scripts in order to integrating wi
 Additional plugins include:
 * gerrit-trigger:2.18.4
 * git-client:1.19.6
-* git:2.4.3
+* git:2.4.4
 * scm-api:1.1
 * junit:1.11
 * maven-plugin:2.12.1
