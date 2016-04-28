@@ -6,6 +6,7 @@ GERRIT_NAME=${GERRIT_NAME:-gerrit}
 JENKINS_IMAGE_NAME=${JENKINS_IMAGE_NAME:-openfrontier/jenkins}
 JENKINS_OPTS=${JENKINS_OPTS:---prefix=/jenkins}
 TIMEZONE=${TIMEZONE:-Asia/Shanghai}
+CI_NETWORK=${CI_NETWORK:-ci-network}
 
 # Create Jenkins volume.
 if [ -z "$(docker ps -a | grep ${JENKINS_VOLUME})" ]; then
@@ -19,7 +20,7 @@ fi
 # Start Jenkins.
 docker run \
 --name ${JENKINS_NAME} \
---link ${GERRIT_NAME}:gerrit \
+--net ${CI_NETWORK} \
 -p 50000:50000 \
 --volumes-from ${JENKINS_VOLUME} \
 -e JAVA_OPTS="-Duser.timezone=${TIMEZONE}" \
