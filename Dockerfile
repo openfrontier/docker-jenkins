@@ -1,4 +1,4 @@
-FROM jenkins
+FROM jenkins:1.651.1
 MAINTAINER zsx <thinkernel@gmail.com>
 
 # Install plugins
