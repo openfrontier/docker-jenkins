@@ -1,14 +1,15 @@
 # Jenkins Docker Image
 Official Jenkins docker plus some plugins and scripts in order to integrating with the Gerrit.  
 Additional plugins include:
-* gerrit-trigger:2.20.0
+* gerrit-trigger:2.21.0
 * git-client:1.19.6
 * git:2.4.4
-* scm-api:1.1
+* structs:1.1
+* scm-api:1.2
 * junit:1.11
-* maven-plugin:2.12.1
+* maven-plugin:2.13
 * docker-plugin:0.16.0
-* durable-task:1.9
+* durable-task:1.10
 * token-macro:1.12.1
 * ssh-slaves:1.10
 * ldap:1.11

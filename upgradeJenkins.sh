@@ -21,7 +21,6 @@ docker run \
 --name ${JENKINS_NAME} \
 --link ${GERRIT_NAME}:gerrit \
 -p 50000:50000 \
--v /bin/docker:/bin/docker \
 --volumes-from ${JENKINS_VOLUME} \
 -e JAVA_OPTS="-Duser.timezone=${TIMEZONE}" \
 -d ${JENKINS_IMAGE_NAME} ${JENKINS_OPTS}
