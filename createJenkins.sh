@@ -24,4 +24,5 @@ docker run \
 -p 50000:50000 \
 --volumes-from ${JENKINS_VOLUME} \
 -e JAVA_OPTS="-Duser.timezone=${TIMEZONE}" \
+--restart=unless-stopped \
 -d ${JENKINS_IMAGE_NAME} ${JENKINS_OPTS}
