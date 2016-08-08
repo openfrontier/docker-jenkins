@@ -5,18 +5,6 @@ GERRIT_WEBURL=$2
 JENKINS_WEBURL=$3
 NEXUS_REPO=$4
 
-# Replace '/' in url to '\/'
-[ "${GERRIT_WEBURL%/}" = "${GERRIT_WEBURL}" ] && GERRIT_WEBURL="${GERRIT_WEBURL}/"
-while [ -n "${GERRIT_WEBURL}" ]; do
-GERRIT_URL="${GERRIT_URL}${GERRIT_WEBURL%%/*}\/"
-GERRIT_WEBURL="${GERRIT_WEBURL#*/}"
-done
-
-# Setup gerrit-trigger.xml
-cp /usr/local/etc/gerrit-trigger.xml ${JENKINS_HOME}/gerrit-trigger.xml
-sed -i "s/{GERRIT_NAME}/${GERRIT_NAME}/g" ${JENKINS_HOME}/gerrit-trigger.xml
-sed -i "s/{GERRIT_URL}/${GERRIT_URL}/g" ${JENKINS_HOME}/gerrit-trigger.xml
-
 # Setup credentials.xml
 cp /usr/local/etc/credentials.xml ${JENKINS_HOME}/credentials.xml
 

@@ -12,10 +12,6 @@ GERRIT_WEBURL=${GERRIT_WEBURL:-$4}
 JENKINS_WEBURL=${JENKINS_WEBURL:-$5}
 NEXUS_REPO=${NEXUS_REPO:-$6}
 
-#create ssh key.
-##TODO: check key existence before create one.
-docker exec ${JENKINS_NAME} ssh-keygen -q -N '' -t rsa  -f /var/jenkins_home/.ssh/id_rsa
-
 #gather server rsa key
 ##TODO: This is not an elegant way.
 [ -f ~/.ssh/known_hosts ] && mv ~/.ssh/known_hosts ~/.ssh/known_hosts.bak

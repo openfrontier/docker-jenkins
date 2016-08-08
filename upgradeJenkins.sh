@@ -22,6 +22,8 @@ docker run \
 --link ${GERRIT_NAME}:gerrit \
 -p 50000:50000 \
 --volumes-from ${JENKINS_VOLUME} \
+-e GERRIT_HOST_NAME=${GERRIT_NAME} \
+-e GERRIT_FRONT_END_URL=http://${HOST_NAME}/gerrit \
 -e JAVA_OPTS="-Duser.timezone=${TIMEZONE}" \
 --restart=unless-stopped \
 -d ${JENKINS_IMAGE_NAME} ${JENKINS_OPTS}
