@@ -19,8 +19,12 @@ RUN curl -fSL "https://${DOCKER_BUCKET}/builds/Linux/x86_64/docker-$DOCKER_VERSI
 USER jenkins
 
 # Install plugins
-COPY plugins.txt /usr/local/etc/plugins.txt
-RUN /usr/local/bin/plugins.sh /usr/local/etc/plugins.txt
+RUN /usr/local/bin/install-plugins.sh \
+  gerrit-trigger \
+  git \
+  docker-build-publish \
+  swarm \
+  docker-plugin
 
 # Add gerrit-trigger plugin config file
 COPY gerrit-trigger.xml /usr/local/etc/gerrit-trigger.xml
