@@ -31,4 +31,4 @@ docker run \
 -e GERRIT_HOST_NAME=${GERRIT_NAME} \
 -e GERRIT_FRONT_END_URL=http://${HOST_NAME}/gerrit \
 --restart=unless-stopped \
--d ${JENKINS_IMAGE_NAME} ${JENKINS_OPTS}
+-d ${JENKINS_IMAGE_NAME}
