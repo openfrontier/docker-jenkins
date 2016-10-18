@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 echo "Genarate JENKINS SSH KEY"
 source /usr/local/bin/generate_key.sh
