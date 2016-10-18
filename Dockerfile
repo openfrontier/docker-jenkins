@@ -22,11 +22,8 @@ USER jenkins
 COPY plugins.txt /usr/local/etc/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/local/etc/plugins.txt
 
-# Add gerrit-trigger config
-COPY gerrit.groovy /usr/share/jenkins/ref/init.groovy.d/gerrit.groovy
-
-# Add credentials plugin config file
-COPY credentials.xml /usr/local/etc/credentials.xml
+# Add groovy setup config
+COPY init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
 
 # Add maven installation config file
 COPY hudson.tasks.Maven.xml /usr/local/etc/hudson.tasks.Maven.xml
