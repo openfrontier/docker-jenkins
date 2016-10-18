@@ -10,10 +10,11 @@ echo "Generating Jenkins Key Pair"
 if [ ! -d "${JENKINS_SSH_DIR}" ]; then mkdir -p "${JENKINS_SSH_DIR}"; fi
 cd "${JENKINS_SSH_DIR}"
 
-if [[ ! $(ls -A "${JENKINS_SSH_DIR}") ]]; then
-  ssh-keygen -t rsa -f 'id_rsa' -b 4096 -C "jenkins@adop-core" -N '';
-  echo "Copy key to userContent folder"
-  mkdir -p ${JENKINS_USER_CONTENT_DIR}
-  rm -f ${JENKINS_USER_CONTENT_DIR}/id_rsa.pub
-  cp ${JENKINS_SSH_DIR}/id_rsa.pub ${JENKINS_USER_CONTENT_DIR}/id_rsa.pub
+if [ ! -f "id_rsa" ]; then
+    rm -f id_rsa.pub
+    ssh-keygen -t rsa -f 'id_rsa' -b 4096 -N '';
+    echo "Copy key to userContent folder"
+    mkdir -p ${JENKINS_USER_CONTENT_DIR}
+    rm -f ${JENKINS_USER_CONTENT_DIR}/id_rsa.pub
+    cp ${JENKINS_SSH_DIR}/id_rsa.pub ${JENKINS_USER_CONTENT_DIR}/id_rsa.pub
 fi
