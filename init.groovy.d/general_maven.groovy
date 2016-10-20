@@ -31,7 +31,7 @@ Thread.start {
     }
 
     if (!maven_inst_exists) {
-        maven_installations = maven_inst
+        maven_installations += maven_inst
     }
 
     desc_MavenTool.setInstallations((MavenInstallation[]) maven_installations)
