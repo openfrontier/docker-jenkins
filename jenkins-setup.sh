@@ -5,9 +5,6 @@ GERRIT_WEBURL=$2
 JENKINS_WEBURL=$3
 NEXUS_REPO=$4
 
-# Setup maven installation
-cp /usr/local/etc/hudson.tasks.Maven.xml ${JENKINS_HOME}/hudson.tasks.Maven.xml
-
 # Replace '/' in url to '\/'
 [ "${JENKINS_WEBURL%/}" = "${JENKINS_WEBURL}" ] && JENKINS_WEBURL="${JENKINS_WEBURL}/"
 while [ -n "${JENKINS_WEBURL}" ]; do

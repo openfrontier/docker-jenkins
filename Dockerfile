@@ -25,9 +25,6 @@ RUN /usr/local/bin/plugins.sh /usr/local/etc/plugins.txt
 # Add groovy setup config
 COPY init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
 
-# Add maven installation config file
-COPY hudson.tasks.Maven.xml /usr/local/etc/hudson.tasks.Maven.xml
-
 # Add Jenkins URL and system admin e-mail config file
 COPY jenkins.model.JenkinsLocationConfiguration.xml /usr/local/etc/jenkins.model.JenkinsLocationConfiguration.xml
 
