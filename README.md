@@ -57,3 +57,18 @@ Additional plugins include:
 ## Upgrade Jenkins container (Use with caution!)
     upgradeJenkins.sh
 
+## Additional environment variables that allow fine tune Jenkins runtime configuration are:
+    LDAP_SERVER (required), the LDPA URI, i.e. ldap-host:389
+    LDAP_ROOTDN (required), the LDAP BASE_DN
+    LDAP_USER_SEARCH_BASE (optional), base organization unit to use to search for users
+    LDAP_USER_SEARCH (optional), LDAP object field to use for the search query
+    LDAP_GROUP_SEARCH_BASE (optional), base organization unit to use to search for groups
+    LDAP_GROUP_SEARCH_FILTER (optional), filter to use querying for groups
+    LDAP_GROUP_MEMBERSHIP_FILTER (optional), filter to use when writing queries to verify if a user is member of a group
+    LDAP_MANAGER_DN (optional), LDAP adim user
+    LDAP_MANAGER_PASSWORD (optional), LDAP admin password
+    LDAP_INHIBIT_INFER_ROOTDN (required), flag indicating if ROOT_DN should be infered
+    LDAP_DISPLAY_NAME_ATTRIBUTE_NAME (optional), LDAP object field used as a display name
+    LDAP_DISABLE_MAIL_ADDRESS_RESOLVER (required), flag indicating if the email address resolver should be disabled
+    LDAP_MAIL_ADDRESS_ATTRIBUTE_NAME (optional), LDAP object field used as a email address
+    LDAP_GROUP_NAME_ADMIN (optional), LDAP admin group. Default to administrators.
