@@ -44,5 +44,9 @@ COPY config.xml /usr/local/etc/config.xml
 # Generate jenkins ssh key.
 COPY generate_key.sh /usr/local/bin/generate_key.sh
 
+# Patch on jenkins.sh to force plugins in images be installed.
+COPY jenkins.sh /usr/local/bin/jenkins.sh
+
+# Add entrypoint script to do pre-start works.
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
