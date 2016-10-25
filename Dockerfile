@@ -20,11 +20,14 @@ USER jenkins
 
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
+  docker-build-publish \
+  docker-plugin \
   gerrit-trigger \
   git \
-  docker-build-publish \
-  swarm \
-  docker-plugin
+  ldap \
+  maven-plugin \
+  parameterized-trigger \
+  swarm
 
 # Add groovy setup config
 COPY init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
