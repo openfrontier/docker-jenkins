@@ -1,12 +1,8 @@
-FROM jenkins:1.651.3-alpine
+FROM jenkins
 MAINTAINER zsx <thinkernel@gmail.com>
 
 # Install docker binary
 USER root
-RUN apk add --no-cache \
-		ca-certificates \
-		curl \
-		openssl
 
 ENV DOCKER_BUCKET get.docker.com
 ENV DOCKER_VERSION 1.10.3
