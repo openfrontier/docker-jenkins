@@ -8,7 +8,7 @@ import com.cloudbees.plugins.credentials.CredentialsScope;
 def instance = Jenkins.getInstance()
 
 Thread.start {
-    println "--> Configuring General Settings"
+    println "--> Configuring General SSH Settings"
 
     // Jenkins SSH Credentials
     println "--> Registering SSH Credentials"
