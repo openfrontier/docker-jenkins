@@ -17,7 +17,7 @@ Additional plugins include:
 * There's another [project](https://github.com/openfrontier/ci) which privdes sample scripts about how to combine this image with [Gerrit image](https://hub.docker.com/r/openfrontier/gerrit/) and other images to create a ci system.
 
 ## Create Jenkins container
-    Please refer to the [project](https://github.com/openfrontier/jenkins-docker) shell file <createJenkins.sh>.
+* Please refer to the [project](https://github.com/openfrontier/jenkins-docker) shell file <createJenkins.sh>.
 
 ## Basic setup for integrating Jenkins with Gerrit.
 
@@ -40,10 +40,10 @@ Additional plugins include:
       http://ci.demo.org/nexus/content/groups/public
 
 ## Destroy Jenkins container (Use with caution!)
-    Please refer to the [project](https://github.com/openfrontier/jenkins-docker) shell file <destroyJenkins.sh>.
+* Please refer to the [project](https://github.com/openfrontier/jenkins-docker) shell file <destroyJenkins.sh>.
 
 ## Upgrade Jenkins container (Use with caution!)
-    Please refer to the [project](https://github.com/openfrontier/jenkins-docker) shell file <upgradeJenkins.sh>.
+* Please refer to the [project](https://github.com/openfrontier/jenkins-docker) shell file <upgradeJenkins.sh>.
 
 ## Additional environment variables that allow fine tune Jenkins runtime configuration are:
     LDAP_SERVER (required), the LDPA URI, i.e. ldap-host:389
