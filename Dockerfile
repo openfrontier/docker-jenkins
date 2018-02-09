@@ -20,6 +20,7 @@ RUN /usr/local/bin/install-plugins.sh \
   gerrit-trigger \
   git \
   ldap \
+  matrix-auth \
   maven-plugin \
   parameterized-trigger \
   swarm
