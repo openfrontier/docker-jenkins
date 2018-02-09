@@ -1,8 +1,12 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:lts-alpine
 MAINTAINER zsx <thinkernel@gmail.com>
 
 # Install docker binary
 USER root
+RUN apk add --no-cache \
+		ca-certificates \
+		curl \
+		openssl
 
 ENV DOCKER_BUCKET download.docker.com
 ENV DOCKER_VERSION 17.06.2-ce
