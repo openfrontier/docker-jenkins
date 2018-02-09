@@ -6,6 +6,7 @@ Additional plugins include:
 * gerrit-trigger
 * git
 * ldap
+* matrix-auth
 * maven-plugin
 * parameterized-trigger
 * swarm
