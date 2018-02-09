@@ -4,13 +4,12 @@ MAINTAINER zsx <thinkernel@gmail.com>
 # Install docker binary
 USER root
 
-ENV DOCKER_BUCKET get.docker.com
-ENV DOCKER_VERSION 1.10.3
-ENV DOCKER_SHA256 d0df512afa109006a450f41873634951e19ddabf8c7bd419caeb5a526032d86d
+ENV DOCKER_BUCKET download.docker.com
+ENV DOCKER_VERSION 17.06.2-ce
 
-RUN curl -fSL "https://${DOCKER_BUCKET}/builds/Linux/x86_64/docker-$DOCKER_VERSION" -o /usr/local/bin/docker \
-	&& echo "${DOCKER_SHA256}  /usr/local/bin/docker" | sha256sum -c - \
-	&& chmod +x /usr/local/bin/docker
+RUN curl -fSL "https://${DOCKER_BUCKET}/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz" -o /tmp/docker-ce.tgz \
+        && tar -xvzf /tmp/docker-ce.tgz --directory="/usr/local/bin" --strip-components=1 docker/docker \
+	&& rm /tmp/docker-ce.tgz
 
 USER jenkins
 
