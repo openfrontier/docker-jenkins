@@ -15,10 +15,12 @@ USER jenkins
 
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
+  copyartifact \
   docker-build-publish \
   docker-plugin \
   gerrit-trigger \
   git \
+  git-parameter \
   ldap \
   matrix-auth \
   maven-plugin \
