@@ -17,7 +17,6 @@ USER jenkins
 RUN /usr/local/bin/install-plugins.sh \
   copyartifact \
   docker-build-publish \
-  docker-plugin \
   gerrit-trigger \
   git \
   git-parameter \
@@ -35,9 +34,6 @@ COPY jenkins.model.JenkinsLocationConfiguration.xml /usr/local/etc/jenkins.model
 
 # Add setup script.
 COPY jenkins-setup.sh /usr/local/bin/jenkins-setup.sh
-
-# Add cloud setting in config file.
-COPY config.xml /usr/local/etc/config.xml
 
 # Generate jenkins ssh key.
 COPY generate_key.sh /usr/local/bin/generate_key.sh
