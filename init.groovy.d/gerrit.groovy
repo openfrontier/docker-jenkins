@@ -51,6 +51,7 @@ Thread.start {
 
         gerrit_server.setConfig(gerrit_server_config)
         gerrit_trigger_plugin.addServer(gerrit_server)
+        gerrit_trigger_plugin.save()
         gerrit_server.start()
         gerrit_server.startConnection()
     }
