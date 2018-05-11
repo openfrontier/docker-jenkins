@@ -52,8 +52,9 @@ Thread.start {
         gerrit_server.setConfig(gerrit_server_config)
         gerrit_trigger_plugin.addServer(gerrit_server)
         gerrit_trigger_plugin.save()
-        gerrit_server.start()
-        gerrit_server.startConnection()
+        // Don't start server by default. Server can be started manually on Gerrit Trigger config page.
+        // gerrit_server.start()
+        // gerrit_server.startConnection()
     }
 
     // Save the state
