@@ -17,6 +17,7 @@ USER jenkins
 RUN /usr/local/bin/install-plugins.sh \
   copyartifact \
   docker-build-publish \
+  docker-workflow \
   gerrit-trigger \
   git \
   git-parameter \
@@ -24,7 +25,8 @@ RUN /usr/local/bin/install-plugins.sh \
   matrix-auth \
   maven-plugin \
   parameterized-trigger \
-  swarm
+  swarm \
+  workflow-aggregator
 
 # Add groovy setup config
 COPY init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
