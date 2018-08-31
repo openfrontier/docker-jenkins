@@ -2,8 +2,6 @@
 Official Jenkins docker plus some plugins and scripts in order to integrating with the Gerrit.  
 Additional plugins include:
 * copyartifact
-* docker-build-publish
-* docker-plugin
 * gerrit-trigger
 * git
 * git-parameter
