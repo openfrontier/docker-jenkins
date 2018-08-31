@@ -11,6 +11,10 @@ RUN curl -fSL "https://${DOCKER_BUCKET}/linux/static/stable/x86_64/docker-${DOCK
         && tar -xvzf /tmp/docker-ce.tgz --directory="/usr/local/bin" --strip-components=1 docker/docker \
 	&& rm /tmp/docker-ce.tgz
 
+# Patch scripts about plugins from 2.x
+COPY install-plugins.sh /usr/local/bin/install-plugins.sh
+COPY jenkins-support /usr/local/bin/jenkins-support
+
 USER jenkins
 
 # Install plugins
