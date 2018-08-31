@@ -15,7 +15,10 @@ USER jenkins
 
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
+  audit-trail:2.2 \
   copyartifact \
+  email-ext:2.44 \
+  envinject:1.92.1 \
   gerrit-trigger \
   git \
   git-parameter \
