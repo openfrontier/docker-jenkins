@@ -4,12 +4,12 @@ MAINTAINER zsx <thinkernel@gmail.com>
 # Install docker binary
 USER root
 
-ENV DOCKER_BUCKET download.docker.com
-ENV DOCKER_VERSION 17.09.0-ce
+#ENV DOCKER_BUCKET download.docker.com
+#ENV DOCKER_VERSION 17.09.0-ce
 
-RUN curl -fSL "https://${DOCKER_BUCKET}/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz" -o /tmp/docker-ce.tgz \
-        && tar -xvzf /tmp/docker-ce.tgz --directory="/usr/local/bin" --strip-components=1 docker/docker \
-	&& rm /tmp/docker-ce.tgz
+#RUN curl -fSL "https://${DOCKER_BUCKET}/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz" -o /tmp/docker-ce.tgz \
+#        && tar -xvzf /tmp/docker-ce.tgz --directory="/usr/local/bin" --strip-components=1 docker/docker \
+#	&& rm /tmp/docker-ce.tgz
 
 # Patch scripts about plugins from 2.x
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
@@ -20,16 +20,15 @@ USER jenkins
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
   audit-trail:2.2 \
-  copyartifact \
   email-ext:2.44 \
   envinject:1.92.1 \
-  gerrit-trigger \
-  git \
-  git-parameter \
-  ldap \
-  matrix-auth \
+  git:2.5.3 \
+  jobcopy-builder:1.3.0 \
+  log-parser:2.0 \
+  multi-branch-project-plugin:0.5.1 \
+  template-project:1.5.2 \
+  ws-cleanup:0.29 \
   maven-plugin \
-  parameterized-trigger \
   swarm
 
 # Add groovy setup config
