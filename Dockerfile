@@ -20,15 +20,15 @@ USER jenkins
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
   audit-trail:2.2 \
-  email-ext:2.44 \
+  email-ext:2.39.3 \
   envinject:1.92.1 \
-  git:2.5.3 \
+  git:2.4.0 \
   jobcopy-builder:1.3.0 \
   log-parser:2.0 \
-  multi-branch-project-plugin:0.5.1 \
-  template-project:1.5.2 \
+  multi-branch-project-plugin:0.3 \
+  template-project:1.4.2 \
   ws-cleanup:0.29 \
-  maven-plugin \
+  maven-plugin:2.10 \
   swarm
 
 # Add groovy setup config
