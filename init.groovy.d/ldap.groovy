@@ -12,7 +12,6 @@ def env = System.getenv()
 // Variables
 def ldap_server = env['LDAP_SERVER']
 def ldap_rootDN = env['LDAP_ROOTDN']
-def ldap_inhibitInferRootDN = env['LDAP_INHIBIT_INFER_ROOTDN'].toBoolean()
 def configXmlFile = "/var/jenkins_home/config.xml"
 
 // Constants
@@ -22,6 +21,7 @@ Thread.start {
     sleep 10000
 
     if (ldap_server && (ldap_rootDN || ldap_inhibitInferRootDN)) {
+        def ldap_inhibitInferRootDN = env['LDAP_INHIBIT_INFER_ROOTDN'].toBoolean()
         init_ldap_parameter = true
         def configXmlString = new File(configXmlFile).getText('UTF-8')
         def rootNode = new XmlSlurper().parseText(configXmlString)
