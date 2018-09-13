@@ -18,7 +18,6 @@ RUN /usr/local/bin/install-plugins.sh \
   copyartifact \
   docker-build-publish \
   docker-workflow \
-  gerrit-trigger \
   git \
   git-parameter \
   ldap \
