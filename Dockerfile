@@ -16,7 +16,6 @@ USER jenkins
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
   ansible \
-  pipeline-aws \
   copyartifact \
   docker-build-publish \
   docker-workflow \
@@ -26,6 +25,7 @@ RUN /usr/local/bin/install-plugins.sh \
   matrix-auth \
   maven-plugin \
   parameterized-trigger \
+  pipeline-aws \
   swarm \
   workflow-aggregator
 

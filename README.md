@@ -1,17 +1,19 @@
 # Jenkins Docker Image
 Official Jenkins docker plus some plugins and scripts in order to integrating with the Gerrit.  
 Additional plugins include:
+* ansible
 * copyartifact
 * docker-build-publish
-* docker-plugin
-* gerrit-trigger
+* docker-workflow
 * git
 * git-parameter
 * ldap
 * matrix-auth
 * maven-plugin
 * parameterized-trigger
+* pipeline-aws
 * swarm
+* workflow-aggregator
 
 ## Features
 * Demonstrate how to integrate Jenkins with Gerrit.
