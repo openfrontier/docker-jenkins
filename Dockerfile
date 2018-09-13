@@ -31,12 +31,6 @@ RUN /usr/local/bin/install-plugins.sh \
 # Add groovy setup config
 COPY init.groovy.d/ /usr/share/jenkins/ref/init.groovy.d/
 
-# Add Jenkins URL and system admin e-mail config file
-COPY jenkins.model.JenkinsLocationConfiguration.xml /usr/local/etc/jenkins.model.JenkinsLocationConfiguration.xml
-
-# Add setup script.
-COPY jenkins-setup.sh /usr/local/bin/jenkins-setup.sh
-
 # Generate jenkins ssh key.
 COPY generate_key.sh /usr/local/bin/generate_key.sh
 
