@@ -15,6 +15,7 @@ USER jenkins
 
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
+  ansible \
   copyartifact \
   docker-build-publish \
   docker-workflow \
