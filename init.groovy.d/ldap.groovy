@@ -12,7 +12,7 @@ def env = System.getenv()
 // Variables
 def ldap_server = env['LDAP_SERVER']
 def ldap_rootDN = env['LDAP_ROOTDN']
-def ldap_inhibitInferRootDN = env['LDAP_INHIBIT_INFER_ROOTDN'].toBoolean()
+def ldap_inhibitInferRootDN = env['LDAP_INHIBIT_INFER_ROOTDN']
 def configXmlFile = "/var/jenkins_home/config.xml"
 
 // Constants
@@ -93,7 +93,7 @@ Thread.start {
                 strategy, //LDAPGroupMembershipStrategy groupMembershipStrategy
                 ldap_managerDN, //String managerDN
                 Secret.fromString(ldap_managerPassword), //Secret managerPasswordSecret
-                ldap_inhibitInferRootDN, //boolean inhibitInferRootDN
+                ldap_inhibitInferRootDN.toBoolean(), //boolean inhibitInferRootDN
                 ldap_disableMailAddressResolver, //boolean disableMailAddressResolver
                 null, //CacheConfiguration cache
                 null, //EnvironmentProperty[] environmentProperties
