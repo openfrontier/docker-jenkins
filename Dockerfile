@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:2.138.2
 MAINTAINER zsx <thinkernel@gmail.com>
 
 # Install docker binary
