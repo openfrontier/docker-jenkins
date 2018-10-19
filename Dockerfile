@@ -17,6 +17,7 @@ USER jenkins
 RUN /usr/local/bin/install-plugins.sh \
   ansible \
   copyartifact \
+  config-file-provider \
   docker-build-publish \
   docker-workflow \
   gerrit-trigger \
