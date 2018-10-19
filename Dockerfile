@@ -31,6 +31,7 @@ RUN /usr/local/bin/install-plugins.sh \
   matrix-auth \
   maven-plugin \
   parameterized-trigger \
+  pipeline-maven \
   swarm \
   workflow-aggregator
 
