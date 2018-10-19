@@ -13,6 +13,7 @@ Additional plugins include:
 * matrix-auth
 * maven-plugin
 * parameterized-trigger
+* pipeline-maven
 * swarm
 * workflow-aggregator
 
