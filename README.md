@@ -3,6 +3,7 @@ Official Jenkins docker plus some plugins and scripts in order to integrating wi
 Additional plugins include:
 * ansible
 * copyartifact
+* config-file-provider
 * docker-build-publish
 * docker-workflow
 * gerrit-trigger
