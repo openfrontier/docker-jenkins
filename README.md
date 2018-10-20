@@ -3,6 +3,7 @@ Official Jenkins docker plus some plugins and scripts in order to integrating wi
 Additional plugins include:
 * ansible
 * copyartifact
+* config-file-provider
 * docker-build-publish
 * docker-workflow
 * gerrit-trigger
@@ -13,6 +14,7 @@ Additional plugins include:
 * matrix-auth
 * maven-plugin
 * parameterized-trigger
+* pipeline-maven
 * swarm
 * workflow-aggregator
 
