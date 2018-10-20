@@ -17,6 +17,7 @@ USER jenkins
 RUN /usr/local/bin/install-plugins.sh \
   ansible \
   copyartifact \
+  config-file-provider \
   docker-build-publish \
   docker-workflow \
   gerrit-trigger \
@@ -27,6 +28,7 @@ RUN /usr/local/bin/install-plugins.sh \
   matrix-auth \
   maven-plugin \
   parameterized-trigger \
+  pipeline-maven \
   swarm \
   workflow-aggregator
 
