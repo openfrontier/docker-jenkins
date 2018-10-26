@@ -5,6 +5,7 @@ Additional plugins include:
 * copyartifact
 * config-file-provider
 * docker-build-publish
+* docker-plugin
 * docker-workflow
 * gerrit-trigger
 * git

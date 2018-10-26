@@ -23,6 +23,7 @@ RUN /usr/local/bin/install-plugins.sh \
   copyartifact \
   config-file-provider \
   docker-build-publish \
+  docker-plugin \
   docker-workflow \
   gerrit-trigger \
   git \
