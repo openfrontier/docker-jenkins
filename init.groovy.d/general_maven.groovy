@@ -3,8 +3,8 @@ import jenkins.model.*;
 import hudson.tools.*;
 import hudson.tasks.Maven.MavenInstaller;
 import hudson.tasks.Maven.MavenInstallation;
-import org.jenkinsci.plugins.configfiles.maven.*
-import org.jenkinsci.plugins.configfiles.maven.security.*
+import org.jenkinsci.plugins.configfiles.maven.*;
+import org.jenkinsci.plugins.configfiles.maven.security.*;
 
 // Constants
 def instance = Jenkins.getInstance()
@@ -58,16 +58,14 @@ Thread.start {
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
-  <servers>
-    <server>
-      <id>deployment</id>
-      <username>deployment</username>
-      <password>deployment123</password>
-    </server>
-  </servers>
 </settings>
 """
-        def globalConfig = new GlobalMavenSettingsConfig(configId, configName, configComment, configContent, false, null)
+        def serverCreds = new ArrayList()
+        def serverId = 'deployment'
+        def credentialId = 'nexus-server'
+        def serverCredentialMappings = new ServerCredentialMapping(serverId, credentialId)
+        serverCreds.add(serverCredentialMappings)
+        def globalConfig = new GlobalMavenSettingsConfig(configId, configName, configComment, configContent, true, serverCreds)
         store.save(globalConfig)
     }
 
