@@ -44,7 +44,6 @@ Thread.start {
     def mirrorUrl = System.getenv("NEXUS_REPO")
     if (mirrorUrl) {
         println("--> Configuring global maven settings")
-        def globalConfigFiles = GlobalConfigFiles.get()
         def configId =  'global-maven-settings'
         def configName = 'global-maven-settings'
         def configComment = 'Maven Mirror Settings'
@@ -61,14 +60,19 @@ Thread.start {
   </mirrors>
 </settings>
 """
-        def serverCreds = new ArrayList()
-        def serverId = 'deployment'
-        def credentialId = 'nexus-server'
-        def serverCredentialMappings = new ServerCredentialMapping(serverId, credentialId)
-        serverCreds.add(serverCredentialMappings)
-        def globalConfig = new GlobalMavenSettingsConfig(configId, configName, configComment, configContent, true, serverCreds)
-        println("Adding maven settings: " + configName)
-        globalConfigFiles.save(globalConfig)
+        def globalConfigFiles = GlobalConfigFiles.get()
+        if (globalConfigFiles.getById(configId) == null) {
+            println("Adding maven settings: " + configName)
+            def serverCreds = new ArrayList()
+            def serverId = 'deployment'
+            def credentialId = 'nexus-server'
+            def serverCredentialMappings = new ServerCredentialMapping(serverId, credentialId)
+            serverCreds.add(serverCredentialMappings)
+            def globalConfig = new GlobalMavenSettingsConfig(configId, configName, configComment, configContent, true, serverCreds)
+            globalConfigFiles.save(globalConfig)
+        } else{
+            println("Found existing maven settings: " + configName)
+        }
     }
 
     // Save the state
