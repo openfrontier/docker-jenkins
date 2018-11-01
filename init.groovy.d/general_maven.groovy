@@ -3,8 +3,9 @@ import jenkins.model.*;
 import hudson.tools.*;
 import hudson.tasks.Maven.MavenInstaller;
 import hudson.tasks.Maven.MavenInstallation;
-import org.jenkinsci.plugins.configfiles.maven.*
-import org.jenkinsci.plugins.configfiles.maven.security.*
+import org.jenkinsci.plugins.configfiles.GlobalConfigFiles;
+import org.jenkinsci.plugins.configfiles.maven.*;
+import org.jenkinsci.plugins.configfiles.maven.security.*;
 
 // Constants
 def instance = Jenkins.getInstance()
@@ -33,17 +34,16 @@ Thread.start {
     }
 
     if (!maven_inst_exists) {
+        println("Adding Maven installation: " + maven_inst.getName())
         maven_installations += maven_inst
+        desc_MavenTool.setInstallations((MavenInstallation[]) maven_installations)
+        desc_MavenTool.save()
     }
-
-    desc_MavenTool.setInstallations((MavenInstallation[]) maven_installations)
-    desc_MavenTool.save()
 
     // Configuring global maven settings
     def mirrorUrl = System.getenv("NEXUS_REPO")
     if (mirrorUrl) {
         println("--> Configuring global maven settings")
-        def store = instance.getExtensionList('org.jenkinsci.plugins.configfiles.GlobalConfigFiles')[0]
         def configId =  'global-maven-settings'
         def configName = 'global-maven-settings'
         def configComment = 'Maven Mirror Settings'
@@ -58,17 +58,21 @@ Thread.start {
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
-  <servers>
-    <server>
-      <id>deployment</id>
-      <username>deployment</username>
-      <password>deployment123</password>
-    </server>
-  </servers>
 </settings>
 """
-        def globalConfig = new GlobalMavenSettingsConfig(configId, configName, configComment, configContent, false, null)
-        store.save(globalConfig)
+        def globalConfigFiles = GlobalConfigFiles.get()
+        if (globalConfigFiles.getById(configId) == null) {
+            println("Adding maven settings: " + configName)
+            def serverCreds = new ArrayList()
+            def serverId = 'deployment'
+            def credentialId = 'nexus-server'
+            def serverCredentialMappings = new ServerCredentialMapping(serverId, credentialId)
+            serverCreds.add(serverCredentialMappings)
+            def globalConfig = new GlobalMavenSettingsConfig(configId, configName, configComment, configContent, true, serverCreds)
+            globalConfigFiles.save(globalConfig)
+        } else{
+            println("Found existing maven settings: " + configName)
+        }
     }
 
     // Save the state
