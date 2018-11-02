@@ -34,6 +34,7 @@ RUN /usr/local/bin/install-plugins.sh \
   maven-plugin \
   parameterized-trigger \
   pipeline-maven \
+  script-security \
   swarm \
   workflow-aggregator
 
