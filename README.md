@@ -18,6 +18,7 @@ Additional plugins include:
 * maven-plugin
 * parameterized-trigger
 * pipeline-maven
+* script-security
 * swarm
 * workflow-aggregator
 

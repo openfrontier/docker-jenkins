@@ -42,7 +42,7 @@ Thread.start {
         def ssh_key_domain = Domain.global()
         def ssh_key_creds = new BasicSSHUserPrivateKey(ssh_key_scope,ssh_key_id,ssh_key_username,ssh_key_private_key_source,ssh_key_passphrase,ssh_key_description)
 
-        system_credentials_provider.addCredentials(ssh_key_domain,ssh_key_creds)
+        system_credentials_provider.getStore().addCredentials(ssh_key_domain,ssh_key_creds)
     }
 
     // Add credentials for deploying artifacts to Nexus
@@ -56,7 +56,7 @@ Thread.start {
         def credentials_domain = Domain.global()
         def user_pass_creds = new UsernamePasswordCredentialsImpl(credentials_scope,redentials_id,nexus_credentials_description,credentials_username,credentials_password)
 
-        system_credentials_provider.addCredentials(credentials_domain,user_pass_creds)
+        system_credentials_provider.getStore().addCredentials(credentials_domain,user_pass_creds)
     }
     // Save the state
     instance.save()
