@@ -68,7 +68,7 @@ Thread.start {
                 def credential_domain = com.cloudbees.plugins.credentials.domains.Domain.global()
                 def credential_creds = new UsernamePasswordCredentialsImpl(credential_scope,credential_id,credential_description,credential_username,credential_password)
 
-                system_credentials_provider.addCredentials(credential_domain,credential_creds)
+                system_credentials_provider.getStore().addCredentials(credential_domain,credential_creds)
             }
 
             // LDAP
