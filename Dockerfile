@@ -36,6 +36,7 @@ RUN /usr/local/bin/install-plugins.sh \
   pipeline-maven \
   script-security \
   swarm \
+  terraform \
   workflow-aggregator
 
 # Add groovy setup config

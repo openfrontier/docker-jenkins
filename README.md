@@ -20,6 +20,7 @@ Additional plugins include:
 * pipeline-maven
 * script-security
 * swarm
+* terraform
 * workflow-aggregator
 
 ## Features
