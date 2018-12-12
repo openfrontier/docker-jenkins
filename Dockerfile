@@ -41,7 +41,7 @@ RUN /usr/local/bin/install-plugins.sh \
   git-client:1.19.6 \
   git-parameter:0.5.1 \
   git:2.5.3 \
-  git-server:1.7 \
+  git-server:1.6 \
   icon-shim:2.0.3 \
   javadoc:1.3 \
   jobConfigHistory:2.14 \
@@ -65,7 +65,7 @@ RUN /usr/local/bin/install-plugins.sh \
   pam-auth:1.2 \
   parameterized-trigger:2.30 \
   workflow-scm-step:2.2 \
-  workflow-step-api:2.2 \
+  workflow-step-api:2.1 \
   plain-credentials:1.2 \
   scm-api:1.2 \
   script-security:1.19 \
