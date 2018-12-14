@@ -69,7 +69,6 @@ RUN /usr/local/bin/install-plugins.sh \
   plain-credentials:1.2 \
   scm-api:1.2 \
   script-security:1.19 \
-  scriptler:2.9 \
   ssh-agent:1.11 \
   ssh-credentials:1.12 \
   ssh-slaves:1.11 \
