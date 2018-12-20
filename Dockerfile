@@ -55,7 +55,7 @@ RUN /usr/local/bin/install-plugins.sh \
   translation:1.15 \
   windows-slaves:1.1 \
   ## triangle
-  uno-choice:1.4 \
+  uno-choice:2.0 \
   bouncycastle-api:1.648.3 \
   branch-api:1.10 \ 
   build-user-vars-plugin:1.5 \
