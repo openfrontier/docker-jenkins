@@ -19,7 +19,7 @@ USER jenkins
 
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
-  uno-choice:1.4 \
+  uno-choice:2.0 \
   AnchorChain:1.0 \
   ant:1.3 \
   audit-trail:2.2 \
