@@ -43,7 +43,6 @@ RUN /usr/local/bin/install-plugins.sh \
   antisamy-markup-formatter:1.5 \
   pam-auth:1.3 \
   scm-api:1.2 \
-  script-security:1.21 \
   sonar:2.4.3 \
   ssh-agent:1.13 \
   ssh-credentials:1.12 \
@@ -55,7 +54,6 @@ RUN /usr/local/bin/install-plugins.sh \
   translation:1.15 \
   windows-slaves:1.1 \
   ## triangle
-  uno-choice:2.0 \
   bouncycastle-api:1.648.3 \
   branch-api:1.10 \ 
   build-user-vars-plugin:1.5 \
