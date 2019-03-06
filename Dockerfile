@@ -20,7 +20,6 @@ USER jenkins
 # Install plugins
 RUN /usr/local/bin/install-plugins.sh \
   ## Append 
-  ivy:1.22 \
   swarm \
   ## -
   ant:1.3 \
