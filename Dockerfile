@@ -82,7 +82,6 @@ RUN /usr/local/bin/install-plugins.sh \
   build-user-vars-plugin:1.5 \
   windows-slaves:1.1 \
   ws-cleanup:0.29 \
-  ivy:1.22 \
   swarm
 
 # Add groovy setup config
