@@ -67,6 +67,7 @@ RUN /usr/local/bin/install-plugins.sh \
   workflow-step-api:2.1 \
   plain-credentials:1.2 \
   scm-api:1.2 \
+  script-security:1.19 \
   ssh-agent:1.11 \
   ssh-credentials:1.12 \
   ssh-slaves:1.11 \
