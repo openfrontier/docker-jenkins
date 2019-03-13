@@ -42,6 +42,7 @@ RUN /usr/local/bin/install-plugins.sh \
   antisamy-markup-formatter:1.5 \
   pam-auth:1.3 \
   scm-api:1.2 \
+  script-security:1.21 \
   sonar:2.4.3 \
   ssh-agent:1.13 \
   ssh-credentials:1.12 \
