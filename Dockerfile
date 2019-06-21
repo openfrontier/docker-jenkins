@@ -24,6 +24,7 @@ RUN /usr/local/bin/install-plugins.sh \
   gerrit-trigger \
   git \
   git-parameter \
+  gitlab-plugin \
   kubernetes \
   ldap \
   matrix-auth \

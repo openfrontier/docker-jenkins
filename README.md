@@ -12,6 +12,7 @@ Additional plugins include:
 * gerrit-trigger
 * git
 * git-parameter
+* gitlab-plugin
 * kubernetes
 * ldap
 * matrix-auth
